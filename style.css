@@ -1,0 +1,448 @@
+html {
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background: #fff;
+  color: #fff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  /* line-height: 1.5; */
+  margin: -30px;
+  max-width: 100%;
+  height: 100%;
+  padding: 2em 2em 4em;
+  font-family: "Avenir Next", "Avenir", sans-serif;
+}
+
+
+b, strong {
+  font-weight: 600;
+}
+
+samp {
+  display: none;
+}
+
+
+/*
+ * Made by Erik Terwan
+ * 24th of November 2015
+ * MIT License
+ *
+ *
+ * If you are thinking of using this in
+ * production code, beware of the browser
+ * prefixes.
+ */
+
+ 
+ #menuToggle
+ {
+
+   display: block;
+   position: relative;
+   top: 50px;
+   left: 50px;
+   
+   z-index: 1;
+   
+   -webkit-user-select: none;
+   user-select: none;
+ }
+ 
+ #menuToggle a
+ {
+   
+   text-decoration: none;
+   color: #FFF;
+   
+   transition: color 0.3s ease;
+ }
+ 
+ #menuToggle a:hover
+ {
+   color: rgb(252, 247, 0);
+ }
+ 
+ 
+ #menuToggle input
+ {
+   border-radius: 25px;
+   display: block;
+   width: 40px;
+   height: 32px;
+   position: absolute;
+   top: -7px;
+   left: -5px;
+   
+   cursor: pointer;
+   
+   opacity: 0; /* hide this */
+   z-index: 2; /* and place it over the hamburger */
+   
+   -webkit-touch-callout: none;
+ }
+ 
+ /*
+  * Just a quick hamburger
+  */
+ #menuToggle span
+ {
+   border-radius: 25px;
+   display: block;
+   width: 33px;
+   height: 4px;
+   margin-bottom: 5px;
+   position: relative;
+   
+   background: #1b0086;
+
+   
+   z-index: 1;
+   
+   transform-origin: 4px 0px;
+   
+   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+               background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+               opacity 0.55s ease;
+ }
+ 
+ #menuToggle span:first-child
+ {
+   transform-origin: 0% 0%;
+ }
+ 
+ #menuToggle span:nth-last-child(2)
+ {
+   transform-origin: 0% 100%;
+ }
+ 
+ /* 
+  * Transform all the slices of hamburger
+  * into a crossmark.
+  */
+ #menuToggle input:checked ~ span
+ {
+   opacity: 1;
+   transform: rotate(45deg) translate(-2px, -1px);
+   background: #ffffff;
+ }
+ 
+ /*
+  * But let's hide the middle one.
+  */
+ #menuToggle input:checked ~ span:nth-last-child(3)
+ {
+   opacity: 0;
+   transform: rotate(0deg) scale(0.2, 0.2);
+ }
+ 
+ /*
+  * Ohyeah and the last one should go the other direction
+  */
+ #menuToggle input:checked ~ span:nth-last-child(2)
+ {
+   transform: rotate(-45deg) translate(0, -1px);
+ }
+ 
+ /*
+  * Make this absolute positioned
+  * at the top left of the screen
+  */
+ #menu
+ {
+   border-radius: 25px;
+   position: absolute;
+   width: 100px;
+   margin: -50px 0 0 -80px;
+   padding: 50px;
+   padding-top: 60px;
+   padding-left: 77px;
+   padding-bottom: 20px;
+   background: #001ea5;
+   list-style-type: none;
+   -webkit-font-smoothing: antialiased;
+   box-shadow:-2px 2px 8px 2px grey;
+   /* to stop flickering of text in safari */
+   
+   transform-origin: 0% 0%;
+   transform: translate(-100%, 0);
+   
+   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+
+   /* transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0); */
+ }
+ 
+ #menu li
+ {
+   padding: 10px 0;
+   font-size: 22px;
+ }
+ 
+ /*
+  * And let's slide it in from the left
+  */
+ #menuToggle input:checked ~ ul
+ {
+   transform: none;
+ }
+
+ /* CARD FLIP GALLERY */
+
+ .col-centered {
+  float: none;
+  margin: 0 auto;
+}
+
+.carousel-control { 
+  width: 8%;
+  width: 0px;
+}
+.carousel-control.left,
+.carousel-control.right { 
+  margin-right: 40px;
+  margin-left: 32px; 
+  background-image: none;
+  opacity: 1;
+}
+.carousel-control > a > span {
+  color: rgb(0, 0, 0);
+  font-size: 29px !important;
+}
+
+.carousel-col { 
+  position: relative; 
+  min-height: 1px; 
+  padding: 5px; 
+  padding-left: 28px;
+  float: left;
+}
+
+.active > div { display:none; }
+.active > div:first-child { display:block; }
+
+/*xs*/
+@media (max-width: 767px) {
+.carousel-inner .active.left { left: -50%; }
+.carousel-inner .active.right { left: 50%; }
+.carousel-inner .next        { left:  50%; }
+.carousel-inner .prev		     { left: -50%; }
+.carousel-col                { width: 50%; }
+.active > div:first-child + div { display:block; }
+footer {width: 50px;}
+}
+
+/*sm*/
+@media (min-width: 768px) and (max-width: 991px) {
+.carousel-inner .active.left { left: -50%; }
+.carousel-inner .active.right { left: 50%; }
+.carousel-inner .next        { left:  50%; }
+.carousel-inner .prev		     { left: -50%; }
+.carousel-col                { width: 50%; }
+.active > div:first-child + div { display:block; }
+footer {width: 50px;}
+}
+
+/*md*/
+@media (min-width: 992px) and (max-width: 1199px) {
+.carousel-inner .active.left { left: -33%; }
+.carousel-inner .active.right { left: 33%; }
+.carousel-inner .next        { left:  33%; }
+.carousel-inner .prev		     { left: -33%; }
+.carousel-col                { width: 33%; }
+.active > div:first-child + div { display:block; }
+.active > div:first-child + div + div { display:block; }
+footer {width: 50px;}
+}
+
+/*lg*/
+@media (min-width: 1200px) {
+.carousel-inner .active.left { left: -25%; }
+.carousel-inner .active.right{ left:  25%; }
+.carousel-inner .next        { left:  25%; }
+.carousel-inner .prev		     { left: -25%; }
+.carousel-col                { width: 25%; }
+.active > div:first-child + div { display:block; }
+.active > div:first-child + div + div { display:block; }
+.active > div:first-child + div + div + div { display:block; }
+footer {width: 50px;}
+}
+
+.block {
+width: 200px;
+height: 210px;
+margin: 5px;
+margin-left: 250px;
+margin-top: 10px;
+border-radius:20px;
+box-shadow:-2px 2px 8px 2px grey;
+
+}
+
+.orange {background-color: #FF6900;}
+
+.blue {background-color: blue;}
+
+.green {background-color: green;}
+
+.yellow {background-color: #FCB900;}
+
+.light-purble {background-color: #9B51E0;}
+
+.red {background-color: #CF2E2E;}
+
+.Next{
+margin-left: 1150px;
+margin-top: 0px;
+}
+
+.Previous{
+margin-left: 75px;
+margin-top: 0px;
+}
+
+.container {
+  width: 80%;
+}
+
+.footer {
+  position: relative;
+  align-items: center;
+}
+
+.tekst { 
+  color:rgb(0, 0, 0);
+  width:1086px;
+  height:185px;
+  position:absolute;
+  margin-left:150px;
+  top:62px;
+  font-family:Mulish;
+  text-align:center;
+  font-size:31px;
+  letter-spacing:0;
+}
+
+ 
+.balkje{
+  border-radius: 20px;
+  background-color:rgba(207.00000286102295, 46.000001057982445, 46.000001057982445, 1);
+  width:1140px;
+  height:310px;
+  position:absolute;
+  margin-left:125px;
+  top:5px;
+  box-shadow:-2px 2px 20px 2px grey;
+}
+
+
+
+/* .e92_46 { 
+  border-radius:  100%;
+  background-color:rgba(207.00000286102295, 46.000001057982445, 46.000001057982445, 1);
+  width:349px;
+  height:310px;
+  position:absolute;
+  left:0px;
+  top:5px;
+}
+.e92_47 { 
+  border-radius:100%;
+  background-color:rgba(207.00000286102295, 46.000001057982445, 46.000001057982445, 1);
+  width:352px;
+  height:249px;
+  position:absolute;
+  left:179px;
+  top:78px;
+}
+.e92_48 { 
+  border-radius:100%;
+  background-color:rgba(207.00000286102295, 46.000001057982445, 46.000001057982445, 1);
+  width:334px;
+  height:300px;
+  position:absolute;
+  left:355px;
+  top:5px;
+}
+.e92_49 { 
+  border-radius:100%;
+  background-color:rgba(207.00000286102295, 46.000001057982445, 46.000001057982445, 1);
+  width:302px;
+  height:242px;
+  position:absolute;
+  left:212px;
+  top:5px;
+}
+.e92_50 { 
+  border-radius:100%;
+  background-color:rgba(207.00000286102295, 46.000001057982445, 46.000001057982445, 1);
+  width:370px;
+  height: 320px;
+  position:absolute;
+  left:473px;
+  top:5px;
+}
+.e92_51 { 
+  border-radius:100%;
+  background-color:rgba(207.00000286102295, 46.000001057982445, 46.000001057982445, 1);
+  width:399px;
+  height:300px;
+  position:absolute;
+  left:680px;
+  top:0px;
+}
+.e92_52 { 
+  border-radius:100%;
+  background-color:rgba(207.00000286102295, 46.000001057982445, 46.000001057982445, 1);
+  width:406px;
+  height:296px;
+  position:absolute;
+  left:895px;
+  top:4px; 
+}
+ .e92_53 { 
+  transform: rotate(180deg);
+  color:rgba(47.0000009983778, 18.000000827014446, 95.00000193715096, 1);
+  width:50px;
+  height:141px;
+  position:absolute;
+  left:69px;
+  top:62px;
+  font-family:Neuton;
+  text-align:left;
+  font-size:120px;
+  letter-spacing:0;
+}
+.e92_54 { 
+  color:rgba(47.0000009983778, 18.000000827014446, 95.00000193715096, 1);
+  width:50px;
+  height:141px;
+  position:absolute;
+  left:1227px;
+  top:62px;
+  font-family:Neuton;
+  text-align:left;
+  font-size:120px;
+  letter-spacing:0;
+}
+.e92_55 { 
+  color:rgba(255, 255, 255, 1);
+  width:1086px;
+  height:185px;
+  position:absolute;
+  left:123px;
+  top:62px;
+  font-family:Mulish;
+  text-align:center;
+  font-size:31px;
+  letter-spacing:0;
+} 
+.e92_58 { 
+  width:1301px;
+  height:327px;
+  position:absolute;
+  left:75px;
+  top:764px;
+} */
